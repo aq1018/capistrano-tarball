@@ -2,7 +2,7 @@
 #
 # This will become the contents of the <release_path>/REVISION file.
 # Defaults to current git HEAD short hash
-set_if_empty :tarball_release_tag, -> {
+set :tarball_release_tag, -> {
   `git log --pretty=format:'%h' -n 1 HEAD`
 }
 
@@ -10,7 +10,7 @@ set_if_empty :tarball_release_tag, -> {
 #
 # The generated tarball file name.
 # Defaults to <:application>-<:stage>-<tarball_release_tag>.tar.gz
-set_if_empty :tarball_name, -> {
+set :tarball_name, -> {
   "#{fetch(:application)}-#{fetch(:stage)}-#{fetch(:tarball_release_tag)}.tar.gz"
 }
 
@@ -24,13 +24,13 @@ set_if_empty :tarball_name, -> {
 # with in the custom script to determine where the tarball should be saved, and
 # which application environment / stage the tarball is intended to be deployed
 # to.
-set_if_empty :tarball_package_cmd, -> {
+set :tarball_package_cmd, -> {
   "tar -czf ${TARBALL_PATH} ."
 }
 
 # :tarball_release_cmd
 #
 # The command to run in order to extract the tarball into the <:release_path>.
-set_if_empty :tarball_release_cmd, -> {
+set :tarball_release_cmd, -> {
   "tar -xf #{fetch(:tarball_remote_path)} -C #{fetch(:release_path)}"
 }
