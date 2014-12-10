@@ -1,28 +1,53 @@
-# Capistrano::Binary
+# Capistrano::Tarball
 
-TODO: Write a gem description
+**Note: this plugin works only with Capistrano 3.**
 
-## Installation
+### About
 
-Add this line to your application's Gemfile:
+Capistrano Tarball plugin allows the deployment of your apps via a tarball. This plugin does the following for you:
+
+* Packages your source code / compiled binary into a tarball.
+* Uploads the tarball to remote servers.
+* Extract the tarball to `release_path`
+
+### Installation
+
+Put the following in your application's `Gemfile`:
 
 ```ruby
-gem 'capistrano-binary'
+group :development do
+  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano-tarball'
+end
 ```
 
-And then execute:
+Then:
 
-    $ bundle
+```
+$ bundle install
+```
 
-Or install it yourself as:
+### Usage
 
-    $ gem install capistrano-binary
+Put the following in your application's `Capfile`:
 
-## Usage
+```ruby
+require 'capistrano/tarball'
+```
 
-TODO: Write usage instructions here
+Then set the `scm` to `tarball` in your `deploy.rb`:
 
-## Contributing
+```ruby
+# Yeah, I know... tarball is not really a SCM, but trust me...
+set :scm, :tarball
+```
+
+### Configurations
+
+Please see: [defaults.rb](https://github.com/aq1018/capistrano-tarball/blob/master/lib/capistrano/tarball/defaults.rb)
+
+
+### Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/capistrano-binary/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
