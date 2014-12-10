@@ -1,4 +1,4 @@
-load File.expand_path("../tarball/tasks/tarball.rake", __FILE__)
+load File.expand_path("../tasks/tarball.rake", __FILE__)
 
 require 'tmpdir'
 require 'capistrano/scm'
@@ -17,11 +17,11 @@ class Capistrano::Tarball < Capistrano::SCM
   end
 
   def remote_path
-    File.join(fetch(:tmp_path), name)
+    fetch(:tarball_remote_path)
   end
 
   def local_path
-    File.join(Dir.tmpdir, name)
+    fetch(:tarball_local_path)
   end
 
   module DefaultStrategy
@@ -30,7 +30,7 @@ class Capistrano::Tarball < Capistrano::SCM
     end
 
     def package
-      context.execute package_cmd
+      context.execute *package_cmd
     end
 
     def upload
@@ -38,7 +38,7 @@ class Capistrano::Tarball < Capistrano::SCM
     end
 
     def release
-      context.execute release_cmd
+      context.execute *release_cmd
       context.execute :rm, remote_path
     end
 

@@ -1,9 +1,4 @@
-namespace :load do
-  task :defaults do
-    load 'capistrano/tarball/defaults.rb'
-  end
-end
-
+p "*************Loaded #{__FILE__}"
 namespace :tarball do
   def strategy
     @strategy ||= Capistrano::Tarball.new(
@@ -30,7 +25,6 @@ namespace :tarball do
   task upload: :"tarball:package" do
     on release_roles :all do
       strategy.upload
-      strategy.test
     end
   end
 

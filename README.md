@@ -17,7 +17,7 @@ Put the following in your application's `Gemfile`:
 ```ruby
 group :development do
   gem 'capistrano', '~> 3.2.0'
-  gem 'capistrano-tarball'
+  gem 'capistrano-tarball', require: false
 end
 ```
 
