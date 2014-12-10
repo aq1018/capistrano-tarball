@@ -1,5 +1,6 @@
 load File.expand_path("../tarball/tasks/tarball.rake", __FILE__)
 
+require 'tmpdir'
 require 'capistrano/scm'
 
 class Capistrano::Tarball < Capistrano::SCM
