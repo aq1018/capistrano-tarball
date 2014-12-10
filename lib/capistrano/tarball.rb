@@ -1,4 +1,4 @@
-load File.expand_path("../tasks/tarball.rake", __FILE__)
+load File.expand_path("../tarball/tasks/tarball.rake", __FILE__)
 
 require 'capistrano/scm'
 
