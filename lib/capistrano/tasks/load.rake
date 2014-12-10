@@ -1,5 +1,3 @@
-p "*************Loaded #{__FILE__}"
-
 require 'tmpdir'
 
 namespace :load do

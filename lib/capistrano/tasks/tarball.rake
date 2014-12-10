@@ -1,4 +1,3 @@
-p "*************Loaded #{__FILE__}"
 namespace :tarball do
   def strategy
     @strategy ||= Capistrano::Tarball.new(
