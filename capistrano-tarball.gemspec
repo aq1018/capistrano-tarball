@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-tarball"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Aaron Qian"]
   spec.email         = ["aq1018@gmail.com"]
   spec.summary       = %q{Capistrano tarball strategy}
