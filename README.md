@@ -32,7 +32,9 @@ $ bundle install
 Put the following in your application's `Capfile`:
 
 ```ruby
-require 'capistrano/tarball'
+require 'capistrano/setup'
+require 'capistrano/deploy'
+require 'capistrano/tarball/load'
 ```
 
 Then set the `scm` to `tarball` in your `deploy.rb`:
